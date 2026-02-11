@@ -1,0 +1,316 @@
+:root {
+  --black: #05070f;
+  --black-soft: #101726;
+  --blue: #1d4ed8;
+  --red: #dc2626;
+  --text: #eef2ff;
+  --muted: #a9b5d1;
+  --border: rgba(200, 220, 255, 0.2);
+  --shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+
+  /* Fondos (pon tus imágenes aquí) */
+  --bg-main: url("assets/backgrounds/panel-principal.jpg");
+  --bg-catalog: url("assets/backgrounds/catalogo.jpg");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, rgba(4, 6, 12, 0.94), rgba(3, 4, 8, 0.98));
+  min-height: 100vh;
+  position: relative;
+}
+
+.rgb-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 10% 15%, rgba(29, 78, 216, 0.35), transparent 34%),
+    radial-gradient(circle at 90% 5%, rgba(220, 38, 38, 0.34), transparent 38%),
+    radial-gradient(circle at 75% 90%, rgba(29, 78, 216, 0.2), transparent 33%);
+  animation: pulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+    opacity: 0.82;
+  }
+  to {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+.hero,
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  padding: 2rem 1rem 1rem;
+  background:
+    linear-gradient(120deg, rgba(5, 8, 16, 0.82), rgba(14, 18, 32, 0.88)),
+    var(--bg-main) center/cover no-repeat;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero__content {
+  max-width: 1150px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  margin: 0 0 0.8rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid rgba(220, 38, 38, 0.55);
+  border-radius: 999px;
+  background: rgba(220, 38, 38, 0.18);
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 0.75rem auto 1rem;
+  color: #d8e0f5;
+}
+
+main {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 1.2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.panel {
+  background: linear-gradient(160deg, rgba(9, 12, 24, 0.9), rgba(13, 17, 30, 0.9));
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+.catalog {
+  background:
+    linear-gradient(165deg, rgba(5, 8, 16, 0.9), rgba(11, 14, 22, 0.9)),
+    var(--bg-catalog) center/cover no-repeat;
+}
+
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.8rem;
+}
+
+.section-head h2 {
+  margin: 0;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 0.7rem;
+  margin-bottom: 0.7rem;
+}
+
+input,
+select {
+  width: 100%;
+  border-radius: 0.7rem;
+  border: 1px solid rgba(96, 165, 250, 0.45);
+  background: rgba(5, 9, 20, 0.8);
+  color: var(--text);
+  padding: 0.75rem 0.85rem;
+  font-size: 0.95rem;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.25);
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.preview-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.catalog-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.book-card {
+  background: linear-gradient(160deg, rgba(9, 14, 27, 0.96), rgba(16, 20, 36, 0.96));
+  border: 1px solid rgba(100, 120, 180, 0.35);
+  border-radius: 0.9rem;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 170px 1fr;
+}
+
+.book-cover-wrap {
+  position: relative;
+}
+
+.book-cover {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  background: #111827;
+}
+
+.book-genre {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 999px;
+  background: rgba(220, 38, 38, 0.86);
+}
+
+.book-info {
+  padding: 0.85rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.book-title {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.book-author,
+.book-year {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.book-description {
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.comments-grid {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.comment {
+  margin: 0;
+  padding: 0.85rem;
+  border-radius: 0.8rem;
+  background: linear-gradient(165deg, rgba(17, 22, 35, 0.95), rgba(35, 15, 20, 0.92));
+  border: 1px solid rgba(220, 38, 38, 0.25);
+}
+
+.comment p {
+  margin: 0 0 0.55rem;
+}
+
+.comment span {
+  color: #c7d2fe;
+  font-size: 0.85rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 0.7rem;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  color: #eef2ff;
+  background: linear-gradient(90deg, #1d4ed8, #2563eb);
+}
+
+.btn-ghost {
+  color: #f0f5ff;
+  background: rgba(220, 38, 38, 0.2);
+  border-color: rgba(220, 38, 38, 0.5);
+}
+
+.btn-read {
+  color: #fff;
+  background: linear-gradient(90deg, #dc2626, #ef4444);
+  margin-top: 0.3rem;
+}
+
+.btn:hover {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.06), 0 0 20px rgba(37, 99, 235, 0.35);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (max-width: 760px) {
+  main {
+    padding: 0.85rem;
+  }
+
+  .panel {
+    padding: 0.85rem;
+  }
+
+  .filters {
+    grid-template-columns: 1fr;
+  }
+
+  .book-card {
+    grid-template-rows: 160px 1fr;
+  }
+
+  .book-cover {
+    height: 160px;
+  }
+}

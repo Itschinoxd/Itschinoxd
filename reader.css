@@ -1,0 +1,88 @@
+:root {
+  --bg: #04060d;
+  --surface: #0d1322;
+  --blue: #1d4ed8;
+  --red: #dc2626;
+  --text: #eef2ff;
+  --border: rgba(180, 200, 255, 0.25);
+
+  --bg-catalog: url("assets/backgrounds/catalogo.jpg");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background:
+    linear-gradient(140deg, rgba(6, 10, 20, 0.92), rgba(15, 10, 18, 0.92)),
+    var(--bg-catalog) center/cover no-repeat fixed;
+  color: var(--text);
+}
+
+.reader-layout {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.reader-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10, 16, 30, 0.86);
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+  padding: 0.85rem 1rem;
+}
+
+.reader-top h1 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.back-btn {
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(90deg, var(--red), var(--blue));
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.65rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.pdf-shell {
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+  overflow: hidden;
+  background: rgba(13, 19, 34, 0.86);
+  min-height: calc(100vh - 130px);
+}
+
+#pdf-frame {
+  width: 100%;
+  min-height: calc(100vh - 130px);
+  border: 0;
+}
+
+@media (max-width: 700px) {
+  .reader-layout {
+    padding: 0.7rem;
+  }
+
+  .reader-top h1 {
+    font-size: 1rem;
+  }
+
+  .pdf-shell,
+  #pdf-frame {
+    min-height: calc(100vh - 155px);
+  }
+}

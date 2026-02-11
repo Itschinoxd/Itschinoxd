@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biblioteca Gamer RGB</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="rgb-overlay" aria-hidden="true"></div>
+
+    <header class="hero" id="inicio">
+      <div class="hero__content panel">
+        <p class="badge">GAMER RGB LIBRARY</p>
+        <h1>Panel Principal</h1>
+        <p>
+          Vista previa profesional con pocos libros destacados, comentarios y acceso al catálogo completo.
+        </p>
+        <a class="btn btn-primary" href="#catalogo">Ir al catálogo completo</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel">
+        <div class="section-head">
+          <h2>Libros destacados</h2>
+          <span class="muted">Vista previa (solo algunos)</span>
+        </div>
+        <div id="preview-books" class="grid preview-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="panel comments">
+        <h2>Comentarios</h2>
+        <div class="comments-grid">
+          <article class="comment">
+            <p>“Se ve gamer sin verse saturado. Muy limpio.”</p>
+            <span>— Karen L.</span>
+          </article>
+          <article class="comment">
+            <p>“Me gustó que el inicio tenga pocos libros y luego el catálogo completo.”</p>
+            <span>— Moisés R.</span>
+          </article>
+          <article class="comment">
+            <p>“En celular se ve bien organizado y rápido.”</p>
+            <span>— Sofía M.</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel catalog" id="catalogo">
+        <div class="section-head">
+          <h2>Catálogo completo</h2>
+          <a class="btn btn-ghost" href="#inicio">Volver al panel principal</a>
+        </div>
+
+        <div class="filters">
+          <label class="sr-only" for="search">Buscar libro</label>
+          <input id="search" type="search" placeholder="Buscar por título, autor o género" />
+
+          <label class="sr-only" for="genre">Filtrar por género</label>
+          <select id="genre">
+            <option value="">Todos los géneros</option>
+          </select>
+        </div>
+
+        <p id="count" class="muted"></p>
+        <div id="books" class="grid catalog-grid" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <template id="book-template">
+      <article class="book-card">
+        <div class="book-cover-wrap">
+          <img class="book-cover" alt="" loading="lazy" />
+          <span class="book-genre"></span>
+        </div>
+        <div class="book-info">
+          <h3 class="book-title"></h3>
+          <p class="book-author"></p>
+          <p class="book-year"></p>
+          <p class="book-description"></p>
+          <a class="btn btn-read" target="_blank" rel="noopener noreferrer">Leer PDF</a>
+        </div>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
